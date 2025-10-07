@@ -54,32 +54,25 @@ body {
 }
 
 .card__image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--cyan-400);
-  opacity: 0;
-  transition: all 0.3s ease;
-  transform: scale(.85);
-  border-radius: .5rem;
-}
-
-.card__image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/images/icon-view.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 40px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 99;
+    display: grid;
+    place-content: center;
+    content: url("/images/icon-view.svg");
+    position: absolute;
+    inset: 0;
+    background-color: hsla(178, 100%, 50%, .3);
+    transition: all 0.3s ease;
+    transform: scale(.85);
+    border-radius: .5rem;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 50%;
 }
 
 .card__image:hover::after {
-  opacity: 0.5;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 0;
+    visibility: visible;
 }
 
 .card__image:hover::before {
@@ -96,10 +89,12 @@ body {
     color: var(--white);
     margin-top: 1.5rem;
     cursor: pointer;
+    transition: all .3s;
 }
 
 .card__title:hover {
     text-decoration: underline;
+    color: var(--cyan-400);
 }
 
 .card__meta {
@@ -156,8 +151,10 @@ body {
 .card__content p b {
     cursor: pointer;
     color: var(--white);
+    transition: all .3s;
 }
 
 .card__creator p b:hover {
     text-decoration: underline;
+    color: var(--cyan-400);
 }
